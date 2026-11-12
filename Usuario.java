@@ -12,9 +12,9 @@ public class Usuario {
 
         System.out.println("Digite o nome de Usuário desejado: ");
         sc.nextLine();
-        nomeUsuario = sc.nextLine();
+        nomeUsuario = sc.next();
         System.out.println("Digite a senha desejada: ");
-        senhaUsuario = sc.nextLine();
+        senhaUsuario = sc.next();
 
         System.out.println("Usuário cadastrado com sucesso!");
 
