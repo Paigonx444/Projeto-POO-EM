@@ -1,5 +1,5 @@
 # 🖨️ Sistema de Controle de Impressora Elgin
-### *(Troque pelo nome do seu projeto)*
+### PrintMarcosNazyVitorLira
 ---
 
 ## 📘 Sobre o Projeto
@@ -82,5 +82,7 @@ Exemplo: Este projeto foi desenvolvido por alunos para se comunicar com uma impr
 ## 👥 Autores
 *(em ordem alfabética)*
 
-- Nome Completo
-- Nome Completo
+- Brayan Lira 
+- Gabriel Azevedo
+- João Vitor
+- Heitor Nagy

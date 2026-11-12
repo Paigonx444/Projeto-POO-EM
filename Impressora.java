@@ -6,6 +6,7 @@ public class Impressora {
     static String modelo;
     static String conexao;
     static int parametro;
+    boolean conexaoAberta = false;
 
     void configurarImpressora(int tipo, String modelo, String conexao, int parametro) {
         Scanner sc = new Scanner(System.in);
@@ -32,4 +33,6 @@ public class Impressora {
             System.out.println("Erro ao conectar com a impressora. Retorno: " +retorno);
         }
     }
+
+
 }
