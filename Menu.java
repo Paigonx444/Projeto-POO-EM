@@ -150,41 +150,10 @@ public class Menu {
                         System.out.println("Digite o texto: ");
                         String dados = sc.nextLine();
 
-                        System.out.println("Digite a posição: " +
-                                "\n 0 - Esquerda" +
-                                "\n 1 - Centro" +
-                                "\n 2 - Direita\n");
-                        int posicao = sc.nextInt();
-                        if (posicao < 0 || posicao > 2){
-                            System.out.println("Posição inválida! Digite um valor entre 0 e 2");
-                            break;
-                        }
-
-                        System.out.println("Digite o estilo: " +
-                                "\n 0 - Fonte A" +
-                                "\n 1 - Fonte B" +
-                                "\n 2 - Sublinhado" +
-                                "\n 4 - Invertido" +
-                                "\n 8 - Negrito (Podem ser somados)\n");
-                        int estilo = sc.nextInt();
-                        if (estilo < 0 || estilo > 15){
-                            System.out.println("Estilo inválido! Digite um valor entre 0 e 15");
-                            break;
-                        }
-
-                        System.out.println("Digite o tamanho:" +
-                                "\n 0 - Normal" +
-                                "\n 1-7 - Altura maior \n");
-                        int tamanho = sc.nextInt();
-                        if (tamanho < 0 || tamanho > 7) {
-                            System.out.println("Tamanho inválido! Digite um valor entre 0 e 7");
-                            break;
-                        }
-
-                        impressora.imprimirTexto(dados, posicao, estilo, tamanho);
+                        impressora.imprimirTexto(dados);
 
                     } catch(InputMismatchException e) {
-                        System.out.println("Erro: Posição, estilho e tamanho precisam ser números inteiros!");
+                        System.out.println("Erro: Você fez miraculosidades parabéns!");
                         sc.nextLine();
                         continue;
                     }
@@ -203,27 +172,15 @@ public class Menu {
                         System.out.println("Digite o conteúdo ou o Link do QR Code: ");
                         String dados = sc.nextLine();
 
-                        System.out.println("Digite o tamanho (1 a 6): ");
-                        int tamanho = sc.nextInt();
-                        if (tamanho < 1 || tamanho > 6) {
-                            System.out.println("Digite um tamanho válido!");
-                            break;
-                        }
-
-                        System.out.println("Digite o nível de correção (1 a 4):");
-                        int nivelCorrecao = sc.nextInt();
-                        if (nivelCorrecao < 1 || nivelCorrecao > 4) {
-                            System.out.println("Digite um nível válido!");
-                            break;
-                        }
-                        impressora.imprimirQRCode(dados, tamanho, nivelCorrecao);
+                        impressora.imprimirQRCode(dados);
 
                     } catch (InputMismatchException e){
-                        System.out.println("Erro: O Tamanho e o Nível de Correção precisam ser números inteiros!");
+                        System.out.println("Erro: Você fez miraculosidades parabéns!");
                         sc.nextLine();
                         continue;
                     }
                     break;
+
                 case 6:
                     if (!impressora.conexaoAberta) {
                         System.out.println("Alerta: Conexão fechada! Abra conexão (opção 2)");
@@ -232,48 +189,10 @@ public class Menu {
                     try {
                         System.out.println("=== IMPRIMIR CÓDIGO DE BARRAS ===");
 
-                        System.out.println("Defina o tipo: " +
-                                "\n 0 - UPC-A" +
-                                "\n 2 - EAN13" +
-                                "\n 3 - EAN8" +
-                                "\n 4 - CODE 39" +
-                                "\n 8 - CODE 128\n");
-                        int tipo = sc.nextInt();
-                        if(tipo < 0 || tipo > 8) {
-                            System.out.println("Digite um tipo válido!");
-                            break;
-                        }
-
                         sc.nextLine();
                         System.out.print("Digite os dados do código de barras: ");
                         String dados = sc.nextLine();
 
-                        System.out.println("Defina a altura (1 a 255)");
-                        int altura = sc.nextInt();
-
-                        if (altura < 1 || altura > 255) {
-                            System.out.println("Altura inválida! Digite uma altura entre 1 e 255!");
-                            break;
-                        }
-
-                        System.out.print("Digite a largura (1 a 6): ");
-                        int largura = sc.nextInt();
-
-                        if (largura < 1 || largura > 6) {
-                            System.out.println("Largura inválida! Digite um valor entre 1 e 6.");
-                            break;
-                        }
-
-                        System.out.println("Digite a posição do texto (HRI):" +
-                                "\n 0 - Não imprimir" +
-                                "\n 1 - Acima do código" +
-                                "\n 2 - Abaixo do código" +
-                                "\n 3 - Acima e abaixo\n");
-                        int hri = sc.nextInt();
-                        if (hri < 0 || hri > 3) {
-                            System.out.println("HRI inválida! Digite um valor entre 0 e 3.");
-                            break;
-                        }
                         impressora.imprimirCodigoBarras(tipo,dados, altura, largura, hri);
 
                     }catch (InputMismatchException e) {
@@ -292,19 +211,7 @@ public class Menu {
 
                         System.out.println("=== IMPRIMIR XML SAT ===");
 
-                        System.out.print("Digite o conteúdo XML ou o caminho (ex: path= + caminho do arquivo): ");
-                        String dados = sc.nextLine();
-
-                        System.out.println("Digite o parâmetro de impressão:" +
-                                "\n 0 - Padrão (Cupom completo)" +
-                                "\n 2 - Extrato resumido");
-                        int param = sc.nextInt();
-                        if (param < 0) {
-                            System.out.println("Parâmetro inválido! Digite um valor maior ou igual a 0.");
-                            break;
-                        }
-
-                        impressora.imprimirXMLSAT(dados, param);
+                        impressora.imprimirXMLSAT();
 
                     } catch (InputMismatchException e) {
                         System.out.println("Erro: O parâmetro precisa ser um número inteiro!");
