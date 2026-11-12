@@ -4,8 +4,6 @@ public class Usuario {
 
     String nomeUsuario;
     String senhaUsuario;
-    String nomeLoginUsuario;
-    String senhaLoginUsuario;
 
     boolean usuarioCadastrado = false;
     boolean usuarioLogado = false;
@@ -14,9 +12,9 @@ public class Usuario {
 
         System.out.println("Digite o nome de Usuário desejado: ");
         sc.nextLine();
-        nomeUsuario = sc.nextLine();
+        nomeUsuario = sc.next();
         System.out.println("Digite a senha desejada: ");
-        senhaUsuario = sc.nextLine();
+        senhaUsuario = sc.next();
 
         System.out.println("Usuário cadastrado com sucesso!");
 
@@ -25,14 +23,14 @@ public class Usuario {
 
     void loginUsuario (Scanner sc) {
 
-        int Tentativas = 0;
-        while (Tentativas < 3) {
+        int Tentativas = 3;
+        while (Tentativas > 0) {
 
             System.out.println("Digite o nome de usuário: ");
             sc.nextLine();
-            nomeLoginUsuario = sc.nextLine();
+            String nomeLoginUsuario = sc.next();
             System.out.println("Digite a senha desejada: ");
-            senhaLoginUsuario = sc.nextLine();
+            String senhaLoginUsuario = sc.next();
 
             if (nomeLoginUsuario.equals(nomeUsuario)  && senhaLoginUsuario.equals(senhaUsuario)) {
 
@@ -41,7 +39,15 @@ public class Usuario {
                 usuarioLogado = true;
                 break;
             }
-            Tentativas++;
+            else {
+                System.out.println("Credenciais incorretas! Restam "+ (Tentativas-1) +" tentativas !");
+            }
+            if (Tentativas == 1) {
+                System.out.println("Limite de tentativas atingido! Encerrando Programa...");
+                System.exit(0);
+            }
+            Tentativas--;
         }
+
     }
 }
