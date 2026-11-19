@@ -139,14 +139,14 @@ public class Impressora {
         }
     }
 
-    public void imprimirXMLCancelamentoSAT(String dados, String assQRCode, int param) {
+    public void imprimirXMLCancelamentoSAT() {
         if (!conexaoAberta) {
             System.out.println("Alerta: Antes de imprimir, abra a conexão (opção 2).");
             return;
         }
 
         try {
-            int retorno = ImpressoraDLL.INSTANCE.ImprimeXMLCancelamentoSAT(dados, assQRCode, param);
+            int retorno = ImpressoraDLL.INSTANCE.ImprimeXMLCancelamentoSAT("CFe13180314200166000166599000108160001324252883", "Q5DLkpdRijIRGY6YSSNsTWK1TztHL1vD0V1Jc4spo/CEUqICEb9SFy82ym8EhBRZjbh3btsZhF+sjHqEMR159i4agru9x6KsepK/q0 E2e5xlU5cv3m1woYfgHyOkWDNcSdMsS6bBh2Bpq6s89yJ9Q6qh/J8YHi306ce9Tqb/drKvN2XdE5noRSS32TAWuaQEVd7u+TrvXlOQ sE3fHR1D5f1saUwQLPSdIv01NF6Ny7jZwjCwv1uNDgGZONJdlTJ6p0ccqnZvuE70aHOI09elpjEO6Cd+orI7XHHrFCwhFhAcbalc+Z fO5b/+vkyAHS6CYVFCDtYR9Hi5qgdk31v23w==", 0);
 
             if (retorno == 0) {
                 ImpressoraDLL.INSTANCE.Corte(5);
@@ -159,14 +159,14 @@ public class Impressora {
         }
     }
 
-    public void abrirGaveta(int pino, int ti, int tf) {
+    public void abrirGaveta() {
         if (!conexaoAberta) {
             System.out.println("Alerta: Antes de abrir a gaveta, abra a conexão (opção 2).");
             return;
         }
 
         try {
-            int retorno = ImpressoraDLL.INSTANCE.AbreGavetaElgin(pino, ti, tf);
+            int retorno = ImpressoraDLL.INSTANCE.AbreGavetaElgin(1, 10, 10);
 
             if (retorno == 0) {
                 System.out.println("Comando de abrir gaveta enviado com sucesso!");

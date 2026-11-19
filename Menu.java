@@ -193,10 +193,10 @@ public class Menu {
                         System.out.print("Digite os dados do código de barras: ");
                         String dados = sc.nextLine();
 
-                        impressora.imprimirCodigoBarras(tipo,dados, altura, largura, hri);
+                        impressora.imprimirCodigoBarras(dados);
 
                     }catch (InputMismatchException e) {
-                        System.out.println("Erro: Tipo, altura, largura e HRI precisam ser números inteiros!");
+                        System.out.println("Erro: Você fez miraculosidades, parabéns");
                         sc.nextLine();
                         continue;
                     }
@@ -206,18 +206,12 @@ public class Menu {
                         System.out.println("Alerta: Antes de imprimir, abra a conexão (opção 2).");
                         break;
                     }
-                    try {
                         sc.nextLine(); // Limpa o ENTER deixado pela escolha do menu
 
                         System.out.println("=== IMPRIMIR XML SAT ===");
 
                         impressora.imprimirXMLSAT();
 
-                    } catch (InputMismatchException e) {
-                        System.out.println("Erro: O parâmetro precisa ser um número inteiro!");
-                        sc.nextLine();
-                        continue;
-                    }
 
                     break;
                 case 8:
@@ -225,71 +219,18 @@ public class Menu {
                         System.out.println("Alerta: Antes de imprimir, abra a conexão (opção 2).");
                         break;
                     }
-
-                    try {
-                        sc.nextLine(); // Limpa o ENTER deixado pela escolha do menu
-
                         System.out.println("=== IMPRIMIR XML DE CANCELAMENTO SAT ===");
 
-                        System.out.print("Digite o conteúdo XML de cancelamento: ");
-                        String dados = sc.nextLine();
-
-                        System.out.print("Digite a assinatura do QR Code do cupom original: ");
-                        String assQRCode = sc.nextLine();
-
-                        System.out.print("Digite o parâmetro de impressão (0 - Padrão): ");
-                        int param = sc.nextInt();
-                        if (param < 0) {
-                            System.out.println("Parâmetro inválido! Digite um valor maior ou igual a 0.");
-                            break;
-                        }
-
-                        impressora.imprimirXMLCancelamentoSAT(dados, assQRCode, param);
-
-                    } catch (InputMismatchException e) {
-                        System.out.println("Erro: O parâmetro precisa ser um número inteiro!");
-                        sc.nextLine();
-                        continue;
-                    }
+                        impressora.imprimirXMLCancelamentoSAT();
                     break;
                 case 9:
                     if (!impressora.conexaoAberta) {
                         System.out.println("Alerta: Antes de abrir a gaveta, abra a conexão (opção 2).");
                         break;
                     }
-
-                    try {
                         System.out.println("=== ABRIR GAVETA === ");
 
-                        System.out.println("Digite o pino (0 ou 1): ");
-                        int pino = sc.nextInt();
-                        if (pino < 0 || pino > 1) {
-                            System.out.println("Digite um pino válido!");
-                            break;
-                        }
-
-                        System.out.println("Digite o ti (1 a 255): ");
-                        int ti = sc.nextInt();
-
-                        if (ti < 1 || ti > 255) {
-                            System.out.println("Digite um ti válido!");
-                            break;
-                        }
-
-                        System.out.println("Digite o tf (1 a 255): ");
-                        int tf = sc.nextInt();
-
-                        if (tf < 1 || tf > 255) {
-                            System.out.println("Digite um tf válido!");
-                            break;
-                        }
-
-                        impressora.abrirGaveta(pino, ti, tf);
-                    }catch(InputMismatchException e) {
-                        System.out.println("Erro: TODOS PRECISAM SER NÚMEROS INTEIROS!!!");
-                        sc.nextLine();
-                        continue;
-                    }
+                        impressora.abrirGaveta();
                     break;
                 case 10:
                     if (!impressora.conexaoAberta) {
